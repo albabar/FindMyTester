@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 RSpec.describe Device, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { is_expected.to have_and_belong_to_many(:testers) }
 end

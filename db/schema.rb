@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_06_165516) do
+ActiveRecord::Schema.define(version: 2021_02_06_170610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 2021_02_06_165516) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["description"], name: "index_devices_on_description", unique: true
+  end
+
+  create_table "devices_testers", id: false, force: :cascade do |t|
+    t.bigint "tester_id", null: false
+    t.bigint "device_id", null: false
+    t.index ["device_id"], name: "index_devices_testers_on_device_id"
+    t.index ["tester_id"], name: "index_devices_testers_on_tester_id"
   end
 
   create_table "testers", force: :cascade do |t|
@@ -32,4 +39,6 @@ ActiveRecord::Schema.define(version: 2021_02_06_165516) do
     t.index ["country"], name: "index_testers_on_country"
   end
 
+  add_foreign_key "devices_testers", "devices"
+  add_foreign_key "devices_testers", "testers"
 end
