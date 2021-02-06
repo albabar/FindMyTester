@@ -17,5 +17,9 @@
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^3.11.2"
+  },
+  "volta": {
+    "node": "15.8.0",
+    "yarn": "1.22.10"
   }
 }
