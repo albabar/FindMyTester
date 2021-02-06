@@ -10,4 +10,10 @@ CSV.foreach(Rails.root.join('db', 'seeds', 'testers.csv'), headers: true) do |ro
 end
 puts "========== Seeded #{Tester.count} Testers ==========\n\n"
 
+puts "========== Seeding Devices =========="
+CSV.foreach(Rails.root.join('db', 'seeds', 'devices.csv'), headers: true) do |row|
+  Device.create! row.to_h
+end
+puts "========== Seeded #{Device.count} Testers ==========\n\n"
+
 puts "Seeding completed successfully! Good job! 🚀 \n"
