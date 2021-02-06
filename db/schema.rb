@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_06_170610) do
+ActiveRecord::Schema.define(version: 2021_02_06_172228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bugs", force: :cascade do |t|
+    t.bigint "tester_id", null: false
+    t.bigint "device_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["device_id"], name: "index_bugs_on_device_id"
+    t.index ["tester_id"], name: "index_bugs_on_tester_id"
+  end
 
   create_table "devices", force: :cascade do |t|
     t.string "description"
@@ -36,9 +45,12 @@ ActiveRecord::Schema.define(version: 2021_02_06_170610) do
     t.datetime "last_login"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "bugs_count", default: 0
     t.index ["country"], name: "index_testers_on_country"
   end
 
+  add_foreign_key "bugs", "devices"
+  add_foreign_key "bugs", "testers"
   add_foreign_key "devices_testers", "devices"
   add_foreign_key "devices_testers", "testers"
 end
