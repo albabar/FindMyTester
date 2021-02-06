@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-8 offset-2">
+    <%= form_with class: 'row g-3 align-items-center' do |form| %>
+      <div class="col-5">
+        <%= form.select :countries, Tester.pluck(:country), {prompt: 'All Countries'}, class: 'form-select' %>
+      </div>
+      <div class="col-5">
+        <%= form.select :devices, Device.pluck(:description), {prompt: 'All Devices'}, class: 'form-select' %>
+      </div>
+
+      <div class="col-1">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    <% end %>
+  </div>
+</div>

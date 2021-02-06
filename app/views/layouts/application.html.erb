@@ -1,16 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>FindMyTester</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>FindMyTester</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Eighth navbar example">
+      <div class="container">
+        <%= link_to root_path, class: 'navbar-brand' do %>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+               stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto"
+               role="img" viewBox="0 0 24 24"><title>Home</title>
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path>
+          </svg>
+        <% end %>
+
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <%= link_to 'Home', root_path, class: 'nav-link' %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main class="container">
+      <div class="text-center py-5 px-8">
+        <h1>Find me the best Testers</h1>
+      </div>
+      <%= yield %>
+    </main>
   </body>
 </html>
