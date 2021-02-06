@@ -2,12 +2,12 @@
 
 class TestersController < ApplicationController
   def search
-    @testers = Tester.search(*search_params)
+    @testers = Tester.search(**search_params)
   end
 
   private
 
   def search_params
-    params.values_at(:countries, :devices)
+    params.permit(countries: [], devices: []).to_h.symbolize_keys
   end
 end

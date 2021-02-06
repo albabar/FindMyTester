@@ -27,7 +27,7 @@ RSpec.describe Tester, type: :model do
       end
 
       it 'returns sorted results' do
-        expect(described_class.search('all', 'iPhone 4').map(&:id)).to eq([tester_2.id, tester_1.id])
+        expect(described_class.search(devices: ['iPhone 4']).map(&:id)).to eq([tester_2.id, tester_1.id])
       end
     end
 
@@ -39,7 +39,7 @@ RSpec.describe Tester, type: :model do
       end
 
       it 'returns sorted results' do
-        expect(described_class.search('all', ['iPhone 4', 'iPhone 5']).map(&:id)).to eq([tester_1.id, tester_2.id])
+        expect(described_class.search(devices: ['iPhone 4', 'iPhone 5']).map(&:id)).to eq([tester_1.id, tester_2.id])
       end
     end
 
@@ -49,7 +49,7 @@ RSpec.describe Tester, type: :model do
       end
 
       it 'returns sorted results' do
-        expect(described_class.search('US', 'all').map(&:id)).to eq([tester_1.id, tester_2.id])
+        expect(described_class.search(countries: ['US']).map(&:id)).to eq([tester_1.id, tester_2.id])
       end
     end
   end

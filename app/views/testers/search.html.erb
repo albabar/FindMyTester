@@ -3,8 +3,9 @@
 <% if @testers.present? %>
   <div class="text-center alert alert-success">
     Testers based on your criteria
-    <strong>Countries: <%= params[:countries] %>, Devices: <%= params[:devices] %></strong>
-    and sorted by bugs reported.
+    <strong>Countries: <%= params.fetch(:countries, []).reject(&:blank?).join(', ').presence || 'ALL' %>,
+      Devices: <%= params.fetch(:devices, []).reject(&:blank?).join(', ').presence || 'ALL' %></strong>
+    and sorted by # of bugs reported.
   </div>
   <table class="table table-striped text-center">
     <thead>
