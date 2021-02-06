@@ -20,8 +20,9 @@ An Applause preview
 * Run `bundle install`
 * Run `yarn install`
 * Copy `config/database.example.yml` to `config/database.yml` and fill in with appropriate details
-* Setup the database: `rails db:create db:schema:load`
-* Seed the database with sample data: `rails db:seed`
-* Run the project: `rails s`
+* Setup the database: `bundle exec rails db:create db:schema:load`
+* Seed the database with sample data: `bundle exec rails db:seed`
+* Run the project: `bundle exec rails s`
 * If everything is okay, it should boot up at `http://localhost:5445`
 * Open your favourite browser and hit `http://localhost:5445`, you should see the webpage.
+* You can run the test suit with `bundle exec rspec`.
