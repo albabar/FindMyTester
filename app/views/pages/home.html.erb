@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-md-8 offset-2">
-    <%= form_with class: 'row g-3 align-items-center' do |form| %>
+    <%= form_with url: search_path, class: 'row g-3 align-items-center' do |form| %>
       <div class="col-5">
-        <%= form.select :countries, Tester.pluck(:country), {prompt: 'All Countries'}, class: 'form-select' %>
+        <%= form.select :countries, countries_list, {}, class: 'form-select' %>
       </div>
       <div class="col-5">
-        <%= form.select :devices, Device.pluck(:description), {prompt: 'All Devices'}, class: 'form-select' %>
+        <%= form.select :devices, devices_list, {}, class: 'form-select' %>
       </div>
 
       <div class="col-1">
