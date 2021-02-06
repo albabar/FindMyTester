@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  post 'search', to: 'testers#search'
+  get 'search', to: 'testers#search'
   root to: 'pages#home'
 end
